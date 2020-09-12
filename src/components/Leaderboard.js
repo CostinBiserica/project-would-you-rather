@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Heading, Image, SimpleGrid, Divider, Box, Text, Flex, Button, Badge} from '@chakra-ui/core'
+import {  Heading, Image, SimpleGrid, Divider, Box, Flex} from '@chakra-ui/core'
 import { getIcon } from './QuestionInfo.js'
 
-const trophyColor = ['yellow', 'grey', 'orange'];
 
 export class Leaderboard extends Component {
   static propType = {
@@ -25,7 +24,7 @@ export class Leaderboard extends Component {
     return (
       <Flex mt={15} flexDirection="column" justifyContent="center" alignItems="center">
         {scoreBoard.map((user, index) => (
-        <Box width="60%" mb={8} p={5} shadow="md" borderWidth="2px" >
+        <Box key={user.id} width="60%" mb={8} p={5} shadow="md" borderWidth="2px" >
           <Heading size="md" mb={5}>#{index+1 +" "+user.name}</Heading>
             <Box width="100%" mb={8} p={5} shadow="md" borderWidth="2px" >
               <Flex >

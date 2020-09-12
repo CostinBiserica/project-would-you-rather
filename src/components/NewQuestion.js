@@ -76,7 +76,6 @@ export class NewQuestion extends Component {
                         fluid
                         positive
                         disabled={disabled}
-                        content="Submit"
                     >
                       Submit
                     </Form.Button>
