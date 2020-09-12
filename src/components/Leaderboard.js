@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropType from 'prop-types';
 import { connect } from 'react-redux';
 import {  Heading, Image, SimpleGrid, Divider, Box, Flex} from '@chakra-ui/core'

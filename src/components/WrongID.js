@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Heading, Box, Text } from '@chakra-ui/core';
 /* Component rendered at /questions/worng_id path */
 const WrongID = () => {

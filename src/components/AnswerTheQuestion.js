@@ -31,9 +31,12 @@ export class AnswerTheQuestion extends Component {
         }
     }
     render() {
-        const { question, loggedUser, users } = this.props;
+        const { question, users } = this.props;
         /* The disabled keep the button locked until the state changes, thus the user selected one option */
-        const disabled = this.state.valut=''? true: false
+
+        /* I managed t solve the issues here, *Warning:Line 36:26:  Do not mutate state directly. Use setState()  react/no-direct-mutation-state*
+        I mistakenly wrote only one "=" instead of three of them to check the this.state.value */
+        const disabled = this.state.value=== '' ? true: false
         return(
             <Box width="90%" mb={8} p={5} shadow="md" borderWidth="2px" >
                 <Heading as="h3" size="lg" mb="20px"> {users[question.author].name} was wondering.. would you rather..</Heading>

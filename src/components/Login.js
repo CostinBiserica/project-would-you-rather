@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Image, Heading, SimpleGrid, Box, Select} from '@chakra-ui/core';
-import { Form , Dropdown} from 'semantic-ui-react'
+import {  Image, Heading, SimpleGrid, Box} from '@chakra-ui/core';
+import { Form } from 'semantic-ui-react'
 import { setLoggedUser } from '../actions/loggedUser';
 //import { Form } from 'semantic-ui-react';
 import './Styles.css';
-import { Redirect } from 'react-router';
 
 export class Login extends Component {
   state = {
@@ -65,11 +64,16 @@ class LoginForm extends Component {
   onChange = event => {
     const {users} = this.props
     users.map(user => {
-      if(user.name===event.target.value){
-        this.setState({...this.state, chosen_character: user.avatarURL})
-        this.setState({value: user.id})
-        this.setState({selectedCharacter: event.target.value})
+      if(user.name===event.target.value){ /* I solved the *Warning: Expected to return a value at the end of arrow function array-callback-return*, 
+        I didn't had a return for the case in which user.name===event.target.value was false */
+      return  this.setState({...this.state, 
+                            chosen_character: user.avatarURL, 
+                            value: user.id,
+                            selectedCharacter: event.target.value })
+        // this.setState({value: user.id})
+        // this.setState({selectedCharacter: event.target.value})
       }
+      return null
     })
     
   };
